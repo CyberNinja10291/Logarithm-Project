@@ -78,72 +78,11 @@ interface IReader {
         uint256 impactPoolAmount;
     }
 
-    struct SwapFees {
-        uint256 feeReceiverAmount;
-        uint256 feeAmountForPool;
-        uint256 amountAfterFees;
-
-        address uiFeeReceiver;
-        uint256 uiFeeReceiverFactor;
-        uint256 uiFeeAmount;
-    }
-
-    struct ExecutionPriceResult {
-        int256 priceImpactUsd;
-        uint256 priceImpactDiffUsd;
-        uint256 executionPrice;
-    }
-
-    function getMarkets(
-        address dataStore,
-        uint256 start,
-        uint256 end
-    ) external view returns (MarketProps[] memory);
-
     function getMarketInfo(
         address dataStore,
         MarketPrices memory prices,
         address marketKey
     ) external view returns (MarketInfo memory);
-
-    function getMarketTokenPrice(
-        address dataStore,
-        MarketProps memory market,
-        PriceProps memory indexTokenPrice,
-        PriceProps memory longTokenPrice,
-        PriceProps memory shortTokenPrice,
-        bytes32 pnlFactorType,
-        bool maximize
-    ) external view returns (int256, MarketPoolValueInfoProps memory);
-
-    function getSwapAmountOut(
-        address dataStore,
-        MarketProps memory market,
-        MarketPrices memory prices,
-        address tokenIn,
-        uint256 amountIn,
-        address uiFeeReceiver
-    ) external view returns (uint256, int256, SwapFees memory fees);
-
-    function getExecutionPrice(
-        address dataStore,
-        address marketKey,
-        PriceProps memory indexTokenPrice,
-        uint256 positionSizeInUsd,
-        uint256 positionSizeInTokens,
-        int256 sizeDeltaUsd,
-        bool isLong
-    ) external view returns (ExecutionPriceResult memory);
-
-    function getSwapPriceImpact(
-        address dataStore,
-        address marketKey,
-        address tokenIn,
-        address tokenOut,
-        uint256 amountIn,
-        PriceProps memory tokenInPrice,
-        PriceProps memory tokenOutPrice
-    ) external view returns (int256, int256);
 
     function getOpenInterestWithPnl(
         address dataStore,

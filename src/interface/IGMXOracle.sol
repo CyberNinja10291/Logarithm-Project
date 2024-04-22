@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 import "./IReader.sol";
 
 interface IGMXOracle {
-      function getMarketTokenInfo(
+  function getMarketTokenInfo(
     address marketToken,
     address indexToken,
     address longToken,

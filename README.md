@@ -48,7 +48,7 @@ $ anvil
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ forge script script/DeployGMXLens.s.sol:DeployGMXLensScript --rpc-url <your_rpc_url> --private-key <your_private_key>
 ```
 
 ### Cast
@@ -60,7 +60,16 @@ $ cast <subcommand>
 ### Help
 
 ```shell
+
+$ forge test
+$ forge compile
 $ forge --help
-$ anvil --help
-$ cast --help
+```
+
+### Contract Address in Abitrum
+```
+    dataStore: 0xFD70de6b91282D8017aA4E741e9Ae325CAb992d8;
+    reader: 0xf60becbba223EEA9495Da3f606753867eC10d139;
+    gmxOracle: 0xeDA605e77aFB949d2856Fb0b1109dDB563218cd1;
+    chainlinkOracle: 0x0aD138107cFc0dbd153407249dCeF6e622D50c2c;
 ```
